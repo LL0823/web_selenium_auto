@@ -1,0 +1,15 @@
+normal_search:
+  - search_text: "测试"
+    ids: "中文测试"
+  - search_text: "test"
+    ids: "英文测试"
+  - search_text: "123"
+    ids: "数字测试"
+
+special_search:
+  - search_text: " "
+    ids: "空格测试"
+  - search_text: "اللغة العربية"
+    ids: "阿拉伯语测试"
+  - search_text: "======================"
+    ids: "多个符号测试"
