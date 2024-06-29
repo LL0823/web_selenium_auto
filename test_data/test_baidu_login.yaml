@@ -1,0 +1,9 @@
+error_login:
+  - testcase:
+      - '547773472@qq.com'
+      - '123456'
+    ids: "密码错误"
+  - testcase:
+      - '5@qq.com'
+      - '123'
+    ids: "账号错误"

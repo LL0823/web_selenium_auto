@@ -7,7 +7,7 @@ import time
 
 import allure
 import pytest
-from page.baidu_serch import BaiduPage
+from page.baidu_homepage import BaiduHomepage
 
 from util.datas_helper import DatasHelper
 
@@ -17,15 +17,16 @@ special_search_text = DatasHelper.get_datas_by_path(__file__, "$.special_search.
 special_ids = DatasHelper.get_datas_by_path(__file__, "$.special_search..ids")
 
 
-class TestBaidu:
+class TestBaiduSearch:
 
     @pytest.mark.parametrize("search_text", normal_search_text, ids=normal_ids)
+    @pytest.mark.usefixtures(driver)
     @pytest.mark.smoke
     @allure.feature("普通查询成功功能验证")
     def test_search_normal(self, driver, env, search_text):
         # get方法会一直等到页面被完全加载，然后才会继续程序，通常测试会在这里选择
         # driver.get(env["base_url"])
-        baidu_page = BaiduPage(driver)
+        baidu_page = BaiduHomepage(driver)
         baidu_page.open_chrom(env.get('$.base_url'))
         baidu_page.search_input_and_click(search_text)
         assert baidu_page.find_baidu_icon(), "没找到baidu图标"
@@ -39,7 +40,7 @@ class TestBaidu:
     def test_search_special(self, driver, env, search_text):
         # get方法会一直等到页面被完全加载，然后才会继续程序，通常测试会在这里选择
         # driver.get(env["base_url"])
-        baidu_page = BaiduPage(driver)
+        baidu_page = BaiduHomepage(driver)
         baidu_page.open_chrom(env.get('$.base_url'))
         baidu_page.search_input_and_click(search_text)
         logging.info(baidu_page.find_baidu_icon())
