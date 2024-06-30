@@ -35,3 +35,7 @@
 
 
 ![img_1.png](util/png/img_1.png)
+
+# 其它
+selenium4在网络允许的情况下，不用特意下载浏览器驱动，会帮我们自动下载，详情参考
+https://blog.csdn.net/u010964317/article/details/139818366?spm=1001.2014.3001.5502
