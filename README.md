@@ -1,6 +1,6 @@
 # 项目介绍
 ## web的UI自动化框架构建
-- 本项目实现接口自动化的技术选型：Python+Requests+Pytest+YAML+Allure ，主要是针对百度web搜索页面来开展的，
+- 本项目实现接口自动化的技术选型：Selenium+Pytest+YAML+Allure ，主要是针对百度web搜索页面来开展的，
 - 通过 Python7.4.4+selenium4 进行web的UI自动化框架构建，使用 Pytest 作为测试执行器，
 - 使用 YAML来管理测试数据，使用 Allure 来生成测试报告。程序入口为：runcase.py文件
 
