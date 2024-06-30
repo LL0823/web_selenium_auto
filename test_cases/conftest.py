@@ -13,7 +13,7 @@ from util.config import Config
 from util.file_helper import FileHelper
 
 
-@pytest.fixture
+@pytest.fixture(scope='session')
 def driver(env, request):
     # dr = webdriver.Chrome()
     # dr.maximize_window()
@@ -56,6 +56,7 @@ def pytest_runtest_makereport(item, call):
     :param call:
     :return:
     """
+    # 获取钩子方法的调用结果
     outcome = yield
     rep = outcome.get_result()
     # 以下为实现异常截图的代码：
@@ -74,7 +75,6 @@ def pytest_runtest_makereport(item, call):
         file_name = '{}.png'.format(time.strftime('%Y_%m_%d_%H_%M_%S', time.localtime()))
         path = FileHelper.get_path("screen", file_name)
         driver_global.save_screenshot(path)
-        logging.info("在勾子方法中错误截图存放地址：{}".format(path))
 
         if hasattr(driver_global, "get_screenshot_as_png"):
             with allure.step("添加失败截图"):
